@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Long";
+  src: url("/fonts/long.woff");
+}
+
+@font-face {
+  font-family: "Round";
+  src: url("/fonts/round.woff");
+}
+
+@font-face {
+  font-family: "Round Bold";
+  font-weight: bold;
+  src: url("/fonts/round-bold.woff");
+}
+
+@theme {
+  --font-sans: "Round", sans-serif;
+  --font-long: "Long", sans-serif;
+  --font-round-bold: "Round Bold", sans-serif;
+  --color-yellow: #fff9cb;
+  --color-pink: #ffb0c4;
+  --breakpoint-sm: 40rem;
+  --breakpoint-xs: 20rem;
+  --breakpoint-3xl: 120rem;
+}
+
+body {
+  width: 100dvw;
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: "Round", sans-serif;
+  background-color: black;
+}
+
+main {
+  width: 100dvw;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(
+    223.17deg,
+    rgb(28, 24, 41) 0%,
+    rgb(27, 24, 40) 8.61%,
+    rgb(25, 23, 36) 17.21%,
+    rgb(22, 21, 32) 25.82%,
+    rgb(20, 19, 28) 34.42%,
+    rgb(18, 18, 24) 43.03%,
+    rgb(17, 17, 23) 51.63%
+  );
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .col-center {
+    @apply flex flex-col justify-center items-center;
+  }
+  .abs-center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+}
+
+@layer components {
+  nav {
+    @apply fixed top-0 left-0 w-full flex justify-between items-center px-4 py-3 md:px-12 md:py-4 z-[100];
+  }
+  .gradient-title {
+    @apply text-3xl sm:text-5xl md:text-7xl lg:text-[8rem] font-round-bold !font-extrabold uppercase leading-tight sm:leading-[4rem] md:leading-[6rem] lg:leading-[7rem] text-center bg-gradient-to-r from-pink-400 via-rose-400 to-amber-400 bg-clip-text text-transparent;
+  }
+  .hero-section {
+    @apply w-dvw max-w-full h-dvh relative overflow-hidden;
+
+    .scale-out {
+      @apply object-cover md:scale-125 h-full w-full;
+    }
+    .title-logo {
+      @apply absolute h-full w-full md:scale-125 top-0 object-cover;
+    }
+    .trailer-logo {
+      @apply absolute bottom-4 sm:bottom-6 w-36 sm:w-48 left-1/2 -translate-x-1/2;
+    }
+    .play-img {
+      @apply rounded-full md:size-28 size-16 bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center shadow-xl cursor-pointer hover:scale-110 transition-transform;
+    }
+    .fake-logo-wrapper {
+      @apply absolute z-50 top-[7.5rem] sm:top-[9rem] md:top-[8.5rem] 2xl:top-44 3xl:top-48 left-1/2 -translate-x-1/2;
+    }
+    .overlay-logo {
+      @apply size-full object-cover opacity-0 w-44 sm:w-56 md:w-60 2xl:w-72 3xl:w-80;
+    }
+  }
+  .first-vd-wrapper {
+    .first-vd {
+      @apply size-full object-cover md:[object-position:50%_center] [object-position:75%_center];
+    }
+  }
+  .entrance-message {
+    @apply absolute inset-0 w-full h-dvh overflow-hidden z-20 opacity-100;
+
+    .entrance-logo {
+      @apply 2xl:w-72 3xl:w-80 md:w-60 sm:w-52 w-40 absolute top-[7rem] sm:top-[8.5rem] md:top-[8.5rem] 2xl:top-44 3xl:top-48 left-1/2 -translate-x-1/2;
+    }
+
+    .text-wrapper {
+      @apply mt-28 sm:mt-40 md:mt-60 2xl:mt-44 3xl:top-48;
+    }
+  }
+  .jason {
+    @apply relative z-10 px-4 sm:px-8 lg:ps-40 2xl:ps-80 py-16 sm:py-24 lg:py-40 mt-16 sm:mt-32 lg:mt-60 flex lg:flex-row flex-col justify-between gap-8 max-w-full overflow-x-hidden;
+
+    h1 {
+      @apply text-yellow font-long uppercase text-4xl sm:text-6xl lg:text-8xl mb-6 md:mb-20;
+    }
+    h2 {
+      @apply text-pink text-xl sm:text-3xl lg:text-5xl mb-4 md:mb-7 pe-0 lg:pe-20;
+    }
+    p {
+      @apply text-white text-sm sm:text-lg lg:text-2xl pe-0 lg:pe-28 leading-relaxed;
+    }
+    .jason-1 {
+      @apply bg-yellow h-[40vh] sm:h-[60vh] lg:h-[80vh] w-full lg:w-auto -translate-x-0 lg:-translate-x-5 rounded-2xl overflow-hidden shadow-xl;
+
+      img {
+        @apply size-full object-cover [object-position:5%_center] hover:scale-[0.98] transition duration-700 ease-in-out;
+      }
+    }
+    .jason-2 {
+      @apply bg-yellow h-[45vh] sm:h-[65vh] lg:h-[90vh] w-full lg:w-auto mt-8 sm:mt-16 lg:mt-36 -translate-x-0 lg:-translate-x-5 rounded-2xl overflow-hidden shadow-xl;
+
+      img {
+        @apply size-full object-cover [object-position:80%_center] hover:scale-x-[0.97] hover:scale-y-[0.98] transition duration-700 ease-in-out;
+      }
+    }
+    .jason-3 {
+      @apply bg-yellow h-[35vh] sm:h-[45vh] lg:h-[50vh] w-full lg:w-[60%] -translate-x-0 lg:-translate-x-5 rounded-2xl overflow-hidden shadow-xl;
+
+      img {
+        @apply size-full object-cover [object-position:42%_center] hover:scale-[0.97] transition duration-700 ease-in-out;
+      }
+    }
+  }
+  .lucia {
+    @apply relative;
+  }
+  .lucia-life {
+    @apply relative z-10 px-4 sm:px-8 py-16 sm:py-24 lg:py-40 mt-16 sm:mt-32 lg:mt-60 flex lg:flex-row flex-col justify-between gap-8 max-w-full overflow-x-hidden;
+
+    h1 {
+      @apply text-yellow font-long uppercase text-4xl sm:text-6xl lg:text-8xl mb-6 md:mb-20;
+    }
+    h2 {
+      @apply text-pink text-xl sm:text-3xl lg:text-5xl mb-4 md:mb-7 pe-0 lg:pe-20;
+    }
+    p {
+      @apply text-white text-sm sm:text-lg lg:text-2xl pe-0 lg:pe-28 leading-relaxed;
+    }
+    p:last-of-type {
+      @apply block;
+    }
+    .lucia-1 {
+      @apply bg-yellow h-[40vh] sm:h-[60vh] lg:h-[80vh] w-full lg:w-auto -translate-x-0 lg:-translate-x-5 rounded-2xl overflow-hidden shadow-xl;
+
+      img {
+        @apply size-full object-cover [object-position:85%_center] hover:scale-[0.98] transition duration-700 ease-in-out;
+      }
+    }
+    .lucia-2 {
+      @apply bg-yellow h-[40vh] sm:h-[55vh] lg:h-[60vh] w-full lg:w-[70%] my-8 sm:my-16 lg:my-36 rounded-2xl overflow-hidden shadow-xl;
+
+      img {
+        @apply size-full object-cover [object-position:50%_center] hover:scale-x-[0.98] hover:scale-y-[0.98] transition duration-700 ease-in-out;
+      }
+    }
+    .lucia-3 {
+      @apply bg-yellow h-[45vh] sm:h-[65vh] lg:h-[90vh] w-full lg:w-[60%] -translate-x-0 lg:-translate-x-5 rounded-2xl overflow-hidden shadow-xl;
+
+      img {
+        @apply size-full object-cover [object-position:62%_center] hover:scale-x-[0.98] hover:scale-y-[0.99] transition duration-700 ease-in-out;
+      }
+    }
+  }
+  .post-card {
+    @apply relative flex justify-center items-center pb-24 sm:pb-48 md:pb-80 shadow-2xl px-4 sm:px-8;
+
+    .animated-gradient-bg {
+      @apply absolute w-full md:h-[200vh] h-[150vh] left-0 xl:-bottom-1/2 md:-bottom-5/6;
+    }
+
+    .post-card-wrapper {
+      @apply mx-auto h-[45vh] sm:h-[60vh] md:h-[75vh] xl:h-[85vh] w-full max-w-6xl flex justify-center items-center overflow-hidden relative rounded-3xl border border-amber-400/30 shadow-2xl;
+
+      video {
+        @apply w-full h-full 2xl:scale-x-105 object-cover;
+      }
+
+      img {
+        @apply absolute z-10 w-full h-full object-cover;
+      }
+
+      button {
+        @apply rounded-full bg-gradient-to-r from-amber-400 to-rose-400 text-black font-extrabold absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-8 md:bottom-16 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base md:text-lg shadow-2xl hover:scale-105 transition-transform cursor-pointer z-20 whitespace-nowrap;
+      }
+    }
+  }
+  .final {
+    @apply relative h-dvh overflow-hidden;
+
+    .final-content {
+      @apply scale-110;
+    }
+  }
+
+  .final-message {
+    @apply absolute w-full h-dvh overflow-hidden z-50 opacity-100;
+  }
+}
+
+.black-gradient-bg {
+  background: linear-gradient(
+    223.17deg,
+    rgb(28, 24, 41) 0%,
+    rgb(27, 24, 40) 8.61%,
+    rgb(25, 23, 36) 17.21%,
+    rgb(22, 21, 32) 25.82%,
+    rgb(20, 19, 28) 34.42%,
+    rgb(18, 18, 24) 43.03%,
+    rgb(17, 17, 23) 51.63%
+  );
+}
+
+.entrance-message {
+  mask-image: radial-gradient(circle at 50% 100vh, black 0%, transparent 0%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+.mask-wrapper {
+  mask-image: url("/images/big-hero-text.svg");
+  mask-repeat: no-repeat;
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(135deg, #0d0f19 0%, #221429 50%, #441a2e 100%);
+}
+
+.jason-content {
+  background: radial-gradient(ellipse, #111117 20%, transparent 70%);
+}
+
+.lucia-life-content {
+  background: radial-gradient(ellipse, #111117 20%, transparent 70%);
+}
